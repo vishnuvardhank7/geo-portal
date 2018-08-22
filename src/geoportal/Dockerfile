@@ -1,12 +1,7 @@
-FROM tomcat:9
-MAINTAINER Vishnuvardhan Kesavan
+From tomcat:8-jre8
 
-ENV GPTURL=https://github.com/vishnuvardhank7/geoportal/archive/1.0.0.zip
 
-ADD $GPTURL /tmp/geoportal.zip
+MAINTAINER "Vishnuvardhan Kesvan"
 
-WORKDIR $CATALINA_HOME/webapps/
-RUN unzip /tmp/geoportal.zip *.war
-RUN rm /tmp/geoportal.zip
 
-COPY tomcat-users.xml $CATALINA_HOME/conf
+ADD geoportal.war /usr/local/tomcat/webapps/
